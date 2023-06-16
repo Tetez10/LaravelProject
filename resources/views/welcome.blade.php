@@ -36,7 +36,7 @@
 
         .btn {
             display: inline-block;
-            background-color: #60a5fa;
+            background-color: #461058;
             color: #fff;
             padding: 0.75rem 1.5rem;
             font-size: 1.25rem;
