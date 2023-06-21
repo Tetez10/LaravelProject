@@ -59,12 +59,15 @@
                                     <a class="dropdown-item" href="{{ route('home') }}">Home</a>
                                     @if (Auth::check())
                                         <a class="dropdown-item" href="{{ route('profile') }}">{{ __('Profile') }}</a>
-                                    @endif
-                                    @if (Auth::check() && Auth::user()->isAdmin())
-                                        <a class="dropdown-item" href="{{ route('admin.users.index') }}">Utilisateurs</a>
+                                        @if (Auth::user()->isAdmin())
+                                            <a class="dropdown-item" href="{{ route('message.index') }}">Messages</a>
+                                            <a class="dropdown-item" href="{{ route('users.index') }}">Utilisateurs</a>
+                                        @endif
                                     @endif
                                     <a class="dropdown-item" href="{{ route('faq') }}">FAQ</a> <!-- Ajout du lien FAQ -->
+                                    @if (!Auth::check() || !Auth::user()->isAdmin())
                                     <a class="dropdown-item" href="{{ route('contact.index') }}">{{ __('Contact Us') }}</a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -72,11 +75,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                </div>
-                                
-                               
-                                
-
                                 </div>
                             </li>
                         @endguest

@@ -9,6 +9,17 @@
             @method('PUT')
 
             <div class="form-group">
+                <label for="category">Category</label>
+                <select name="category_id" id="category" class="form-control" required>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ $faqQuestion->category_id == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="question">Question</label>
                 <input type="text" name="question" id="question" class="form-control" value="{{ $faqQuestion->question }}" required>
             </div>

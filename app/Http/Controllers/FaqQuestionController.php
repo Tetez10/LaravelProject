@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\FaqQuestion;
 use Illuminate\Support\Facades\Auth;
-use App\Models\FaqCategory; // Importation manquante
+use App\Models\FaqCategory; 
 
 
 class FaqQuestionController extends Controller
@@ -50,8 +50,10 @@ public function edit(FaqQuestion $faqQuestion)
         abort(403, 'Accès refusé');
     }
 
-    return view('faq-questions.edit', compact('faqQuestion'));
+    $categories = FaqCategory::all();
+    return view('faq-questions.edit', compact('faqQuestion', 'categories'));
 }
+
 
 
 
@@ -79,7 +81,7 @@ public function store(Request $request)
     return redirect()->route('faq-categories.index')->with('success', 'Question et réponse FAQ ajoutées avec succès.');
 }
 
-public function update(Request $request, FaqQuestion $faqQuestion)
+public function update(Request $request, $id)
 {
     // Vérification de l'autorisation
     if (!Auth::check() || !Auth::user()->isAdmin()) {
@@ -94,11 +96,15 @@ public function update(Request $request, FaqQuestion $faqQuestion)
     ]);
 
     // Mise à jour de la question
-    $faqQuestion->update($validatedData);
-    
+    $faqQuestion = FaqQuestion::findOrFail($id);
+    $faqQuestion->category_id = $validatedData['category_id'];
+    $faqQuestion->question = $validatedData['question'];
+    $faqQuestion->answer = $validatedData['answer'];
+    $faqQuestion->save();
 
     return redirect()->route('faq-categories.index')->with('success', 'Question mise à jour avec succès.');
 }
+
 
 
     public function destroy(FaqQuestion $faqQuestion)

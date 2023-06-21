@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,15 +55,16 @@
     <div class="container">
         <h1 class="title">Welcome to My Blog</h1>
         <ul>
-            <li><a href="{{ route('articles.index') }}">Articles</a></li>
-            <li><a href="{{ route('faq-categories.index') }}">FAQ</a></li>
+            <li><a href="<?php echo e(route('articles.index')); ?>">Articles</a></li>
+            <li><a href="<?php echo e(route('faq-categories.index')); ?>">FAQ</a></li>
         </ul>
         
 
         <div>
-            <a href="{{ route('login') }}" class="btn">Login</a>
-            <a href="{{ route('register') }}" class="btn">Register</a>
+            <a href="<?php echo e(route('login')); ?>" class="btn">Login</a>
+            <a href="<?php echo e(route('register')); ?>" class="btn">Register</a>
         </div>
     </div>
 </body>
 </html>
+<?php /**PATH C:\Users\tetez\OneDrive\Documents\Backend\example-app\resources\views/welcome.blade.php ENDPATH**/ ?>

@@ -11,9 +11,17 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
-    public function __construct(){
-        $this->middleware('isAdmin')->except('show');
+    public function __construct()
+    {
+        $this->middleware('isAdmin')->except(['index', 'show']);
     }
+    
+    public function index()
+    {
+        $articles = Article::all();
+        return view('home', compact('articles'));
+    }
+    
     
     public function create()
     {

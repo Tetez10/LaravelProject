@@ -17,10 +17,10 @@ class UsersTableSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Admin1',
-            'email' => 'admin1@example.com',
-            'password' => Hash::make('PasswordAdmin?'),
-            'role' => 0, // Rôle admin (0)
+            'name' => 'admin',
+            'email' => 'admin@ehb.be',
+            'password' => Hash::make('Password!321'),
+            'role' => 1, // Rôle admin (1)
         ]);
     
         // Création de l'utilisateur
@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'User1',
             'email' => 'user1@example.com',
             'password' => Hash::make('PasswordUser?'),
-            'role' => 1, // Rôle utilisateur (1)
+            'role' => 0, // Rôle utilisateur (0)
         ]);
 }
 

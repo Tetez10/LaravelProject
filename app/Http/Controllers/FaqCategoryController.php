@@ -61,14 +61,6 @@ class FaqCategoryController extends Controller
         return view('faq-categories.show', compact('category', 'categories'));
     }
     
-    
-    
-
-
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(FaqCategory $faqCategory)
     {
         if (auth()->check() && auth()->user()->isAdmin()) {
