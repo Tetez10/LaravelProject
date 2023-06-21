@@ -57,7 +57,7 @@
         <ul>
             <li><a href="<?php echo e(route('articles.index')); ?>">Articles</a></li>
             <li><a href="<?php echo e(route('faq-categories.index')); ?>">FAQ</a></li>
-        </ul>
+            <li><a href="<?php echo e(route('about')); ?>">About</a></li>
         
 
         <div>

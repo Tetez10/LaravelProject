@@ -40,6 +40,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('home') }}">Home</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('welcome') }}">First Page</a>
+                            </li>
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

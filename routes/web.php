@@ -40,6 +40,7 @@ Route::post('/admin/store-user', [UserController::class, 'store'])->name('users.
 
 Auth::routes();
 
+
 // Articles
 Route::resource('articles', ArticleController::class)->withoutMiddleware('auth');
 
@@ -64,9 +65,22 @@ Route::post('/contact/send', [MessageController::class, 'send'])->name('contact.
 
 // Contact
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
-Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.submit');
 
 // Profile
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password');
+
+
+//about
+
+Route::get('/about', function () {
+    return view('aboutpage');
+})->name('about');
+
+// welcome 
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
+

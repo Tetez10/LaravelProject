@@ -41,6 +41,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo e(route('home')); ?>">Home</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo e(route('welcome')); ?>">First Page</a>
+                            </li>
                             <?php if(Route::has('login')): ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
