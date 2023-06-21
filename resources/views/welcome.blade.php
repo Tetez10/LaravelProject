@@ -58,7 +58,8 @@
             <li><a href="{{ route('articles.index') }}">Articles</a></li>
             <li><a href="{{ route('faq-categories.index') }}">FAQ</a></li>
             <li><a href="{{ route('about') }}">About</a></li>
-        
+            <li><a href="{{ route('contact.index') }}">Contact Us</a></li>
+        </ul>
 
         <div>
             <a href="{{ route('login') }}" class="btn">Login</a>

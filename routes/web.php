@@ -60,7 +60,7 @@ Route::post('/faq-questions', [FaqQuestionController::class, 'store'])->name('fa
 Route::get('/messages', [MessageController::class, 'index'])->middleware('auth')->name('message.index');
 
 // Route pour soumettre le formulaire de contact et enregistrer le message
-Route::post('/contact/send', [MessageController::class, 'send'])->name('contact.send');
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send')->middleware('guest');
 
 
 // Contact
